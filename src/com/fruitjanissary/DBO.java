@@ -31,11 +31,10 @@ public class DBO
     //
     private static void initDatabase() throws SQLException
     {
-        //String conString = "jdbc:mysql://127.0.0.1:3306/?user=root&password=goksel38&serverTimezone=UTC";//&SQL_SAFE_UPDATES = 0";
         String url = "jdbc:mysql://127.0.0.1:3306/fruitdb";
         Properties connProps = new Properties();
         connProps.setProperty("user", "root");
-        connProps.setProperty("password", "goksel38");
+        connProps.setProperty("password", "password"); //place your MySQL Password here
         connProps.setProperty("useSSL", "false");
         connProps.setProperty("serverTimezone", "UTC");
         connProps.setProperty("allowPublicKeyRetrieval", "true");
