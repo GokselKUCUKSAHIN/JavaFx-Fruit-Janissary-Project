@@ -505,6 +505,7 @@ public class Game extends Pane
                     Bomb bomb = bombs.get(i); //get i'th index of bombs list
                     if (bomb.isHit(mouseX, mouseY) && !isPaused)
                     {
+                        System.out.println("bomb");
                         getChildren().remove(bomb); //delete object from observable list
                         bombs.remove(bomb); //delete from bombs list
                         bomb.slice(mouseAngle); //slice the Bomb

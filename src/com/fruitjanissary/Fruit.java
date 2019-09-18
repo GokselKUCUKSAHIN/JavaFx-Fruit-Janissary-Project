@@ -35,23 +35,24 @@ public abstract class Fruit extends Pane implements Ifallable, Isliceable
 
     public abstract void setPauseAnim();
 
-    public double getDistance(double x, double y)
+    /*public double getDistance(double x, double y)
     {
         //I calculate delta x and y after i get distance using pythagoras theorem.
         double dx = Math.abs(getCenterX() - x); //delta x
         double dy = Math.abs(getCenterY() - y); //delta y
         return Math.round(Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))); // sqrt(dx^2+dy^2) and rounding for get rid of unnecessary decimals
+    }*/
+
+    public boolean isHit(double x, double y, double r)
+    {
+        double dx = getCenterX() - x;
+        double dy = getCenterY() - y;
+        return Math.pow(dx, 2) + Math.pow(dy, 2) <= Math.pow(r, 2);
     }
 
     public boolean isHit(double x, double y)
     {
-        if (getDistance(x, y) < 0.85 * getRadius()) //if distance less than 85% of radius
-        {
-            return true;
-        } else
-        {
-            return false;
-        }
+        return isHit(x, y, 0.85 * getRadius()); //if distance less than 85% of radius
     }
 
     @Override

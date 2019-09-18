@@ -4,7 +4,6 @@ import com.fruitjanissary.Fruit;
 import com.fruitjanissary.SlicedFruits.SlicedLemon;
 import com.fruitjanissary.Utils;
 import javafx.animation.RotateTransition;
-import javafx.animation.Timeline;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Ellipse;
@@ -83,7 +82,7 @@ public class Lemon extends Fruit
     @Override
     public boolean isHit(double x, double y)
     {
-        if (getDistance(x, y) < 0.95 * getRadius()) //if distance less than 85% of radius
+        if (isHit(x, y, 0.95 * getRadius())) //if distance less than 85% of radius
         {
             return true;
         } else

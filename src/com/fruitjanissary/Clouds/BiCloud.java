@@ -7,16 +7,19 @@ import javafx.scene.shape.ArcType;
 
 public class BiCloud extends Cloud
 {
+
     private double size;
+
     public BiCloud(double size)
     {
-        this.setSize(size*1.6,size);
+        this.setSize(size * 1.6, size);
         draw();
     }
 
     @Override
     public void draw()
     {
+        //
         //setBackground(new Background(new BackgroundFill(Color.DARKGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
         //
         this.setOpacity(0.87);

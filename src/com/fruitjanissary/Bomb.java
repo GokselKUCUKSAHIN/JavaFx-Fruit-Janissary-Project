@@ -1,9 +1,6 @@
 package com.fruitjanissary;
 
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
-
-import java.util.ArrayList;
 
 public abstract class Bomb extends Pane implements Ifallable, Isliceable
 {
@@ -108,23 +105,25 @@ public abstract class Bomb extends Pane implements Ifallable, Isliceable
     public abstract void setPauseAnim();
 
     //
-    public double getDistance(double x, double y)
+    /*public double getDistance(double x, double y)
     {
         //I calculate delta x and y after i get distance using pythagoras theorem.
         double dx = Math.abs(this.getHitCenterX() - x); //delta x
         double dy = Math.abs(this.getHitCenterY() - y); //delta y
         return Math.round(Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))); //sqrt(dx^2+dy^2) and rounding for get rid of unnecessary decimals
+    }*/
+
+
+    public boolean isHit(double x, double y, double r)
+    {
+        double dx = (getLayoutX()+getRadius() - x);
+        double dy = (getLayoutY()+getRadius() - y);
+        return (Math.pow(dx, 2) + Math.pow(dy, 2)) <= r*r;
     }
 
     public boolean isHit(double x, double y)
     {
-        if (getDistance(x, y) < getRadius() * 0.90)
-        {
-            return true;
-        } else
-        {
-            return false;
-        }
+        return isHit(x, y, getRadius() * 0.90);
     }
 
     @Override
