@@ -3,9 +3,11 @@ package com.fruitjanissary.UI;
 import com.fruitjanissary.DBO;
 import com.fruitjanissary.Player;
 import com.fruitjanissary.ScoreRow;
+import com.fruitjanissary.Window;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -32,7 +34,7 @@ public class ScoreTableUI extends Pane
         this.stage = stage;
         this.player = player;
         //
-        ImageView backGround = new ImageView("file:sprites/neon.png");
+        ImageView backGround = new ImageView(new Image(String.valueOf(this.getClass().getResource("/neon.png"))));
         backGround.fitWidthProperty().bind(widthProperty());
         backGround.fitHeightProperty().bind(heightProperty());
         //
@@ -42,7 +44,8 @@ public class ScoreTableUI extends Pane
         ScoreRow.rankCount = 0;
         //
         Label banner = new Label("HALL OF FAME");
-        banner.setFont(Font.loadFont("file:sprites/arcade.otf", 45));
+
+        banner.setFont(Window.arcadeFont45);
         banner.setTextFill(Color.rgb(255, 0, 255));
         HBox labelBox = new HBox();
         labelBox.setAlignment(Pos.CENTER);
@@ -60,7 +63,7 @@ public class ScoreTableUI extends Pane
         fillTable();
         //
         Button backButton = new Button("BACK");
-        backButton.setFont(Font.loadFont("file:sprites/Evogria.otf", 18));
+        backButton.setFont(Window.evogriaFont18);
         backButton.setMaxSize(90, 40);
         backButton.setMinSize(90, 40);
         backButton.setLayoutX(210);
@@ -68,7 +71,8 @@ public class ScoreTableUI extends Pane
         backButton.setFocusTraversable(false);
         //
         Button myScores = new Button("My Scores");
-        myScores.setFont(Font.loadFont("file:sprites/Evogria.otf", 18));
+
+        myScores.setFont(Window.evogriaFont18);
         myScores.setMaxSize(120, 40);
         myScores.setMinSize(120, 40);
         myScores.setLayoutX(380);
@@ -82,7 +86,7 @@ public class ScoreTableUI extends Pane
             stage.setCenter(new MainMenuUI(stage, player));
         });
         //
-        myScores.setOnMouseClicked(e->{
+        myScores.setOnMouseClicked(e -> {
             stage.getChildren().remove(this);
             stage.setCenter(new MyScoresUI(stage, player));
         });

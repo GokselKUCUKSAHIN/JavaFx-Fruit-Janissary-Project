@@ -3,6 +3,7 @@ package com.fruitjanissary.UI;
 import com.fruitjanissary.DBO;
 import com.fruitjanissary.Player;
 import com.fruitjanissary.ScoreRow;
+import com.fruitjanissary.Window;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,7 +13,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,14 +32,14 @@ public class MyScoresUI extends Pane
         this.stage = stage;
         this.player = player;
         //
-        ImageView backGround = new ImageView("file:sprites/neon.png");
+        ImageView backGround = new ImageView(Window.neon);
         backGround.fitWidthProperty().bind(widthProperty());
         backGround.fitHeightProperty().bind(heightProperty());
         //
         ScoreRow.rankCount = 0;
         //
         Label banner = new Label("MY SCORES");
-        banner.setFont(Font.loadFont("file:sprites/arcade.otf", 35));
+        banner.setFont(Window.arcadeFont35);
         banner.setTextFill(Color.rgb(255, 0, 255));
         HBox labelBox = new HBox();
         labelBox.setAlignment(Pos.CENTER);
@@ -59,7 +59,7 @@ public class MyScoresUI extends Pane
             e.printStackTrace();
         }
         playTime.setText(str);
-        playTime.setFont(Font.loadFont("file:sprites/Evogria.otf", 25));
+        playTime.setFont(Window.evogriaFont25);
         playTime.setTextFill(Color.BLUEVIOLET.brighter());
         HBox playBox = new HBox();
         playBox.setAlignment(Pos.CENTER);
@@ -79,7 +79,7 @@ public class MyScoresUI extends Pane
             e.printStackTrace();
         }
         totalScore.setText(tmpstr);
-        totalScore.setFont(Font.loadFont("file:sprites/Evogria.otf", 35));
+        totalScore.setFont(Window.evogriaFont35);
         totalScore.setTextFill(Color.BLUEVIOLET.brighter());
         HBox totalScoreBox = new HBox();
         totalScoreBox.setAlignment(Pos.CENTER);
@@ -97,7 +97,7 @@ public class MyScoresUI extends Pane
         fillTable();
         //
         Button backButton = new Button("BACK");
-        backButton.setFont(Font.loadFont("file:sprites/Evogria.otf", 18));
+        backButton.setFont(Window.evogriaFont18);
         backButton.setMaxSize(90, 40);
         backButton.setMinSize(90, 40);
         backButton.setLayoutX(210);
@@ -105,14 +105,14 @@ public class MyScoresUI extends Pane
         backButton.setFocusTraversable(false);
         //
         Button hallOfFame = new Button("Hall Of Fame");
-        hallOfFame.setFont(Font.loadFont("file:sprites/Evogria.otf", 18));
+        hallOfFame.setFont(Window.evogriaFont18);
         hallOfFame.setMaxSize(150, 40);
         hallOfFame.setMinSize(150, 40);
         hallOfFame.setLayoutX(380);
         hallOfFame.setLayoutY(635);
         hallOfFame.setFocusTraversable(false);
         //
-        getChildren().addAll(backGround, labelBox, playBox,totalScoreBox, box, backButton, hallOfFame);
+        getChildren().addAll(backGround, labelBox, playBox, totalScoreBox, box, backButton, hallOfFame);
         //
         backButton.setOnMouseClicked(e -> {
             stage.getChildren().remove(this);

@@ -4,7 +4,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
 
 import java.util.ArrayList;
 
@@ -42,8 +41,7 @@ public class TopBar extends Pane
         scoreLabel.setTextFill(Color.WHITE);
         scoreLabel.setLayoutY((getMaxHeight() / 2 - 20));
         scoreLabel.setLayoutX(25);
-        scoreLabel.setFont(Font.loadFont("file:sprites/Evogria.otf", 30));
-        //scoreLabel.setFont(Font.font("sprites:Evogria.otf",30));
+        scoreLabel.setFont(Window.evogriaFont30);
         //
         getChildren().add(scoreLabel);
     }

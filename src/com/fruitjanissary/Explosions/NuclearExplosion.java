@@ -1,6 +1,7 @@
 package com.fruitjanissary.Explosions;
 
 import com.fruitjanissary.Explosion;
+import com.fruitjanissary.Window;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -18,8 +19,8 @@ public class NuclearExplosion extends Explosion
 {
 
     private boolean isDone = false;
-    ImageView backGround = new ImageView("file:sprites/explosion.jpg");
-    ImageView pipBoy = new ImageView("file:sprites/falloutboy.png");
+    ImageView backGround = new ImageView(Window.explosionImg);
+    ImageView pipBoy = new ImageView(Window.fallOutImg);
     FadeTransition fadeTransition = new FadeTransition(Duration.millis(3000), backGround);
     EventHandler<ActionEvent> handler = e -> {
         pipBoy.setY(pipBoy.getY() - 4);

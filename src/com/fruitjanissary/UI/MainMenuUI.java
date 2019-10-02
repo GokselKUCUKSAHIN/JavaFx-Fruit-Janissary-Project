@@ -2,6 +2,7 @@ package com.fruitjanissary.UI;
 
 import com.fruitjanissary.Game;
 import com.fruitjanissary.Player;
+import com.fruitjanissary.Window;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -11,22 +12,25 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 
 
 public class MainMenuUI extends Pane
 {
+
     Player player;
+
     public MainMenuUI(BorderPane stage, Player player)
     {
+        //InputStream isEvogria = getClass().getResourceAsStream("/Evogria.otf");
+        //InputStream isLsun = getClass().getResourceAsStream("/lsun.otf");
         this.player = player;
         //
-        ImageView backGround = new ImageView("file:sprites/mainMenuBG.png");
+        ImageView backGround = new ImageView(Window.mainMenuBG);
         backGround.fitWidthProperty().bind(widthProperty());
         backGround.fitHeightProperty().bind(heightProperty());
         //
         Label fruitJanissary = new Label("FRUIT JANISSARY");
-        fruitJanissary.setFont(Font.loadFont("file:sprites/lsun.otf", 70));
+        fruitJanissary.setFont(Window.lsunFont70);
         HBox fruitBox = new HBox();
         fruitBox.setPrefSize(710, 100);
         fruitBox.setAlignment(Pos.CENTER);
@@ -37,14 +41,16 @@ public class MainMenuUI extends Pane
         fruitBox.getChildren().add(fruitJanissary);
         //
         Button buttonPlay = new Button("PLAY");
-        buttonPlay.setFont(Font.loadFont("file:sprites/Evogria.otf", 30));
+
+        buttonPlay.setFont(Window.evogriaFont30);
         buttonPlay.setFocusTraversable(false);
         buttonPlay.setPrefSize(150, 40);
         buttonPlay.setLayoutX(280);
         buttonPlay.setLayoutY(260);
         //
         Button scoreBoard = new Button("Score Board");
-        scoreBoard.setFont(Font.loadFont("file:sprites/Evogria.otf", 30));
+
+        scoreBoard.setFont(Window.evogriaFont30);
         scoreBoard.setFocusTraversable(false);
         scoreBoard.setPrefSize(250, 40);
         scoreBoard.setLayoutX(230);
@@ -52,7 +58,8 @@ public class MainMenuUI extends Pane
         //
         Label userInfo = new Label();
         userInfo.setText("Logged as " + player.getNickname());
-        userInfo.setFont(Font.loadFont("file:sprites/Evogria.otf", 25));
+
+        userInfo.setFont(Window.evogriaFont25);
         userInfo.setTextFill(Color.ORANGE);
         HBox userInfoBox = new HBox();
         userInfoBox.setPrefSize(710, 100);
@@ -64,7 +71,8 @@ public class MainMenuUI extends Pane
         userInfoBox.getChildren().add(userInfo);
         //
         Button logOut = new Button("Log Out");
-        logOut.setFont(Font.loadFont("file:sprites/Evogria.otf", 25));
+
+        logOut.setFont(Window.evogriaFont25);//"file:src/sprites/Evogria.otf"
         logOut.setFocusTraversable(false);
         logOut.setPrefSize(150, 50);
         logOut.setLayoutX(280);
@@ -81,9 +89,9 @@ public class MainMenuUI extends Pane
             stage.getChildren().remove(this);
             stage.setCenter(new LogInUI(stage));
         });
-        scoreBoard.setOnMouseClicked(e->{
+        scoreBoard.setOnMouseClicked(e -> {
             stage.getChildren().remove(this);
-            stage.setCenter(new ScoreTableUI(stage,player));
+            stage.setCenter(new ScoreTableUI(stage, player));
         });
     }
 }

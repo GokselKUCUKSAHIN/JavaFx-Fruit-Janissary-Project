@@ -356,7 +356,7 @@ public class Game extends Pane
         particles.clear();
         imAlreadyTracer.clear();
         //
-        ImageView backGround = new ImageView("file:sprites/clear_sky.png");
+        ImageView backGround = new ImageView(Window.clearSky);
         backGround.fitWidthProperty().bind(widthProperty());
         backGround.fitHeightProperty().bind(heightProperty());
         //

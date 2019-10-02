@@ -1,6 +1,7 @@
 package com.fruitjanissary.UI;
 
 import com.fruitjanissary.DBO;
+import com.fruitjanissary.Window;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -10,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+
 
 public class SignUpUI extends Pane
 {
@@ -25,7 +27,7 @@ public class SignUpUI extends Pane
     private void draw()
     {
         //
-        ImageView backGround = new ImageView("file:sprites/mainMenuBG.png");
+        ImageView backGround = new ImageView(Window.mainMenuBG);
         backGround.fitWidthProperty().bind(widthProperty());
         backGround.fitHeightProperty().bind(heightProperty());
         //710 * 710
@@ -37,7 +39,7 @@ public class SignUpUI extends Pane
         field.setArcHeight(88);
         //
         Label joinUs = new Label("Join US");
-        joinUs.setFont(Font.loadFont("file:sprites/lsun.otf", 45));
+        joinUs.setFont(Window.lsunFont45);
         joinUs.setTextFill(Color.BLACK);
         joinUs.setLayoutX(field.getX() + 160);
         joinUs.setLayoutY(field.getY() + 20);

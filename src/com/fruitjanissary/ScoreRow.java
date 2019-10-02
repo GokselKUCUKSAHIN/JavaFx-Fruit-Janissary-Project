@@ -1,10 +1,6 @@
 package com.fruitjanissary;
 
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -69,7 +65,7 @@ public class ScoreRow extends Pane
         Label ranklbl = new Label();
         ranklbl.setText(String.format("#%2d", rank));
         ranklbl.setPrefSize(50, 30);
-        ranklbl.setFont(Font.loadFont("file:sprites/Evogria.otf", 25));
+        ranklbl.setFont(Window.evogriaFont25);
         ranklbl.setTextFill(Color.WHITE);
         ranklbl.setLayoutY(3);
         ranklbl.setLayoutX(10);
@@ -88,7 +84,7 @@ public class ScoreRow extends Pane
         scorelbl.setText(String.format("%08d", score));
         scorelbl.setPrefSize(100, 30);
         scorelbl.setMinSize(100, 30);
-        scorelbl.setFont(Font.loadFont("file:sprites/Evogria.otf", 15));
+        scorelbl.setFont(Window.evogriaFont15);
         scorelbl.setTextFill(Color.WHITE);
         scorelbl.setLayoutY(3);
         scorelbl.setLayoutX(200);

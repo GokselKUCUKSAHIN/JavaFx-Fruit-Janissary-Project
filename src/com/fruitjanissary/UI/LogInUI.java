@@ -2,8 +2,10 @@ package com.fruitjanissary.UI;
 
 import com.fruitjanissary.DBO;
 import com.fruitjanissary.Player;
+import com.fruitjanissary.Window;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -28,7 +30,7 @@ public class LogInUI extends Pane
     private void draw()
     {
         //
-        ImageView backGround = new ImageView("file:sprites/mainMenuBG.png");
+        ImageView backGround = new ImageView(Window.mainMenuBG);//mainMenuBG.png
         backGround.fitWidthProperty().bind(widthProperty());
         backGround.fitHeightProperty().bind(heightProperty());
         //710 * 710
@@ -40,7 +42,7 @@ public class LogInUI extends Pane
         field.setArcHeight(88);
         //
         Label fruitJanissary = new Label("Welcome to Fruit Janissary");
-        fruitJanissary.setFont(Font.loadFont("file:sprites/lsun.otf", 38));
+        fruitJanissary.setFont(Window.lsunFont38);//lsun.otf "file:src/sprites/lsun.otf"
         fruitJanissary.setTextFill(Color.BLACK);
         fruitJanissary.setLayoutX(field.getX() + 30);
         fruitJanissary.setLayoutY(field.getY() + 35);
@@ -114,7 +116,7 @@ public class LogInUI extends Pane
                     Player player = DBO.getPlayer(pid);
                     info.setText("Welcome " + player.getName() + " " + player.getSurname());
                     stage.getChildren().remove(this);
-                    stage.setCenter(new MainMenuUI(stage,player));
+                    stage.setCenter(new MainMenuUI(stage, player));
                 } else
                 {
                     info.setText("Check Nickname and Password.");

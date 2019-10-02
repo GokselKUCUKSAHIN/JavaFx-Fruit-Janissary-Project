@@ -1,6 +1,7 @@
 package com.fruitjanissary.UI;
 
 import com.fruitjanissary.Game;
+import com.fruitjanissary.Window;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -9,12 +10,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 
 public class GameOverUI extends Pane
 {
+
     private Button exit;
     private Button replay;
     private Game game;
@@ -76,15 +77,16 @@ public class GameOverUI extends Pane
         this.setMinSize(710, 710);
         //
         Label gameOverText = new Label("GAME OVER");
-        gameOverText.setFont(Font.loadFont("file:sprites/Overseer.otf", 50));
+
+        gameOverText.setFont(Window.overseerFont50);
         gameOverText.setLayoutY(background.getY() + 25);
         gameOverText.setLayoutX(background.getX() + 84);
         exit = new Button("Exit");
-        exit.setFont(Font.loadFont("file:sprites/Evogria.otf", 20));
+        exit.setFont(Window.evogriaFont20);
         exit.setPrefSize(100, 50);
         exit.setFocusTraversable(false);
         replay = new Button("Replay");
-        replay.setFont(Font.loadFont("file:sprites/Evogria.otf", 20));
+        replay.setFont(Window.evogriaFont20);
         replay.setPrefSize(100, 50);
         replay.setFocusTraversable(false);
         HBox box = new HBox();
