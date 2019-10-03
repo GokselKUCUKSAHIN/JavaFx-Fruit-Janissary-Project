@@ -127,16 +127,10 @@ public class MyScoresUI extends Pane
 
     private void initTable()
     {
-        rows.add(new ScoreRow());
-        rows.add(new ScoreRow());
-        rows.add(new ScoreRow());
-        rows.add(new ScoreRow());
-        rows.add(new ScoreRow());
-        rows.add(new ScoreRow());
-        rows.add(new ScoreRow());
-        rows.add(new ScoreRow());
-        rows.add(new ScoreRow());
-        rows.add(new ScoreRow());
+        for (int i = 0; i < 10; i++)
+        {
+           rows.add(new ScoreRow());
+        }
     }
 
     private void fillTable()
