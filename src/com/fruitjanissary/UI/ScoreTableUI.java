@@ -34,7 +34,7 @@ public class ScoreTableUI extends Pane
         this.stage = stage;
         this.player = player;
         //
-        ImageView backGround = new ImageView(new Image(String.valueOf(this.getClass().getResource("/neon.png"))));
+        ImageView backGround = new ImageView(Window.neon);
         backGround.fitWidthProperty().bind(widthProperty());
         backGround.fitHeightProperty().bind(heightProperty());
         //
